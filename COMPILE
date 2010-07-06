@@ -1,37 +1,43 @@
 COMPILATION
 
-Ensure that plib, trafficserver, kfs, sector and avro are all checked out on the same level:
+Ensure that plib, ts, kfs, sector, vz and avro are all checked out on the same level:
 
-../vz
-../plib
-../trafficserver
-../sector
-../kfs
-../avro
+mkdir vzite
+cd vzite
+git clone git://github.com/jplevyak/plib.git
+git clone git://github.com/jplevyak/ts.git
+git clone git://github.com/jplevyak/kfs.git
+git clone git://github.com/jplevyak/sector.git
+git clone git://github.com/jplevyak/vz.git
+git clone git://github.com/apache/avro.git
 
-avro:
-
-cd avro/lang/c++
-autoreconf -f -i
-make check
-
-
-plib:
+PLIB
 
 make
 
-trafficserver:
+TS
 
 autoreconf -i
 configure --enable-standalone-iocore
 
-kfs:
+KFS
 
 mkdir build
 cd build
 cmake ..
 make
+make install
 
-sector:
+SECTOR
 
 make
+
+VZ
+
+make
+
+AVRO
+
+cd avro/lang/c++
+autoreconf -f -i
+make check
