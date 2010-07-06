@@ -1,0 +1,22 @@
+# import a data file
+vz cp file:examples/numbers_abc.byte /
+# take a look at it
+vz ls
+vz ls -l
+vz type numbers_abc.byte
+# convert to text (on a cluster this ensures that complete lines are local)
+vz cat -ttext numbers_abc.byte numbers_abc.text
+# display text
+vz cat numbers_abc.text
+# convert to binary
+vz cat -t"struct:{ int a; int b; int c; }" numbers_abc.text numbers.abc
+# take a look
+vz ls -l
+vz type numbers_abc.byte
+vz cat -ttextnumbers.abc
+# select
+vz select b numbers.abc numbers.b
+vz cat -ttext numbers.b
+# where
+vz where "b=5" numbers.abc numbers.b5
+vz cat -ttext numbers.b5
