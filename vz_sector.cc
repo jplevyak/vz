@@ -10,6 +10,7 @@ Copyright (c) 2010 John Plevyak, All Rights Reserved
 #include "slave.h"
 #include "client.h"
 #include "ink_base64.h"
+#include "tcptransport.h"
 
 using namespace std;
 
@@ -99,6 +100,37 @@ static void master_conf(MasterConf &c) {
   c.m_iReplicaNum = replicas;
   c.m_strHomeDir = metadata_directory;
   c.m_MetaType = MEMORY;
+}
+
+void* Master::vz_utility(void* s) {
+  Master *self = (Master*)s;
+  SSLTransport secconn;
+  char filename[512];
+  char *buf = 0;
+  int size = 0;
+  strcpy(filename, system_directory); strcat(filename, "master_node.cert");
+  if (buf_read(filename, &buf, &size) < 0) {
+    buf = (char*)default_master_node_cert_base64; 
+    size = strlen(default_master_node_cert_base64) + 1; 
+  }
+
+  TCPTransport util;
+  util.open(NULL, self->m_SysConfig.m_iServerPort - 1);
+  util.listen();
+
+  while (self->m_Status == RUNNING) {
+    char ip[64];
+    int port;
+    TCPTransport* t = util.accept(ip, port);
+    if (!t)
+      continue;
+    t->send((char*)&size, 4);
+    t->send(buf, size);
+    t->close();
+    delete t;
+  }
+
+  return NULL;
 }
 
 void* Master::vz_serviceEx(void* param) {
@@ -271,6 +303,11 @@ int Master::vz_init() {
   addr.m_strIP = "";
   addr.m_iPort = m_SysConfig.m_iServerPort;
   m_Routing.insert(m_iRouterKey, addr);
+
+  // start utility thread
+  pthread_t utilserver;
+  pthread_create(&utilserver, NULL, vz_utility, this);
+  pthread_detach(utilserver);
 
   // start service thread
   pthread_t svcserver;

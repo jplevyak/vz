@@ -65,11 +65,11 @@ EXECUTABLES = $(EXECUTABLE_FILES)
 DCS = vz
 endif
 
-PROGRAM_SRCS = builtin_vz.cc cat.cc
+PROGRAM_SRCS =
 
 ALL_SRCS = $(DCS_SRCS) $(LIB_SRCS) $(PROGRAM_SRCS)
 
-defaulttarget: $(EXECUTABLES) vz.cat builtin_vz
+defaulttarget: $(EXECUTABLES) vz.cat
 
 help:
 	@echo "available commands:"
@@ -89,10 +89,6 @@ release: $(DCS)
 importlibs:
 	cp `ldd vz | grep "=>" | grep -v linux-vdso | awk '{ printf "%s " $$3, "" }'` .
 	touch importlibs
-
-builtin_vz: builtin_vz.cc
-	$(CXX) $(CFLAGS) $^ version.o -o $@ -L../plib -lplib -lpthread
-	ln -f -s builtin_vz cat.vz
 
 a.out: t.cc
 	g++ -g -Wno-invalid-offsetof t.cc -I ~/src/avro-trunk/lang/c++/api -L/usr/local/lib -L/home/jplevyak/src/avro-trunk/lang/c++/.libs -lavrocpp -lboost_system-mt -lboost_filesystem-mt -lboost_regex-mt
@@ -226,14 +222,5 @@ runtime.o: runtime.cc defs.h ../plib/plib.h ../plib/arg.h \
  ../plib/hash.h ../plib/persist.h ../plib/prime.h ../plib/service.h \
  ../plib/timer.h ../plib/unit.h cli.h vz.h vz_inline.h \
  ../sector/include/sphere.h
-builtin_vz.o: builtin_vz.cc defs.h ../plib/plib.h ../plib/arg.h \
- ../plib/barrier.h ../plib/config.h ../plib/stat.h ../plib/dlmalloc.h \
- ../plib/freelist.h ../plib/defalloc.h ../plib/list.h ../plib/log.h \
- ../plib/vec.h ../plib/map.h ../plib/threadpool.h ../plib/misc.h \
- ../plib/util.h ../plib/conn.h ../plib/md5.h ../plib/mt64.h \
- ../plib/hash.h ../plib/persist.h ../plib/prime.h ../plib/service.h \
- ../plib/timer.h ../plib/unit.h cli.h vz.h vz_inline.h COPYRIGHT.i \
- LICENSE.i
-cat.o: cat.cc
 
 # IF YOU PUT ANYTHING HERE IT WILL GO AWAY
