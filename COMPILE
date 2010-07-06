@@ -1,0 +1,37 @@
+COMPILATION
+
+Ensure that plib, trafficserver, kfs, sector and avro are all checked out on the same level:
+
+../vz
+../plib
+../trafficserver
+../sector
+../kfs
+../avro
+
+avro:
+
+cd avro/lang/c++
+autoreconf -f -i
+make check
+
+
+plib:
+
+make
+
+trafficserver:
+
+autoreconf -i
+configure --enable-standalone-iocore
+
+kfs:
+
+mkdir build
+cd build
+cmake ..
+make
+
+sector:
+
+make

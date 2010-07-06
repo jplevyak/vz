@@ -1,0 +1,11 @@
+# Makefile for builtin vz
+
+CFLAGS += -rdynamic
+
+all:
+	echo "no default target"
+
+$(SOURCE): $(SOURCE).cc $(PROG).h
+	rm -f $(PROG).so $(PROG).cc
+	cat $(PROG).h $(SOURCE).cc > $(PROG).cc
+	$(CXX) $(CFLAGS) $(PROG).cc -shared -g -fPIC -o $(PROG).so

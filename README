@@ -1,0 +1,101 @@
+INSTALLATION
+
+Ensure that you have ssh installed.
+
+STANDALONE OPERATION
+
+vz standalone
+
+vz will now operate on the local machine and file system.
+
+CLUSTER INSTALLATION
+
+Ensure that your ssh keys are installed on all the machines you
+are going to install on.
+
+vz start machine1 machine2 machine3
+vz status
+vz stop
+
+SWITCHING CLUSTERS
+
+vz login cluster-machine
+
+SESSION STATE
+
+session state is stored in:
+
+~/.vz/session
+
+and includes:
+
+cwd: /
+machines: standalone
+
+MULTIPLE SESSIONS
+
+sessions are typically global to a user (the
+state is stored in a file), however multiple
+sessions can be started by setting:
+
+XDCS_SESSION
+
+in the environment to a unique session id.
+
+e.g. for bash : export XDCS_SESSION=specialsession1
+
+CONFIGURATION FILES
+
+user configuration is stored in:
+
+~/.vz/config
+/opt/vz/config
+
+cluster installation configuration is stored in:
+
+~/.vz/machines
+/opt/vz/machines
+
+FILE SYSTEM
+
+vz ls
+// vz du
+vz cp
+vz cat 
+vz mv
+vz rm
+vz setrep ;; set replication factor
+vz setrecsize ;; set record size
+vz stat
+vz test
+
+// hadoop map reduce
+// input and output are directories !?
+// you can have additional files and jar's present
+
+vz genheaders foo.h input* output
+vz cc foo.cc input* output
+vz mr foo.cc input* output
+
+vz chgrp chmod chown  ;; 0.2 ?
+vz setcompress ;; 0.2
+vz setrecsize -v ;; variable record size
+
+vz cp vzfs:/foo/bar box
+vz cp kfs:/foo/bar box
+vz cp hdfs:/foo/bar box
+
+???
+vz tail ??
+vz rmr 
+vz movefromlocal
+vz movetolocal
+vz put
+vz expunge ?? 
+vz count ?? 
+vz getmerge ?? subsumed by cat
+vz cpfromlocal ?? subsumed
+vz cptolocal ??
+vz get ??
+
+
