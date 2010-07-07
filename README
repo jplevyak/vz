@@ -56,46 +56,10 @@ cluster installation configuration is stored in:
 ~/.vz/machines
 /opt/vz/machines
 
-FILE SYSTEM
+HELP
 
-vz ls
-// vz du
-vz cp
-vz cat 
-vz mv
-vz rm
-vz setrep ;; set replication factor
-vz setrecsize ;; set record size
-vz stat
-vz test
+vz
 
-// hadoop map reduce
-// input and output are directories !?
-// you can have additional files and jar's present
+EXAMPLES
 
-vz genheaders foo.h input* output
-vz cc foo.cc input* output
-vz mr foo.cc input* output
-
-vz chgrp chmod chown  ;; 0.2 ?
-vz setcompress ;; 0.2
-vz setrecsize -v ;; variable record size
-
-vz cp vzfs:/foo/bar box
-vz cp kfs:/foo/bar box
-vz cp hdfs:/foo/bar box
-
-???
-vz tail ??
-vz rmr 
-vz movefromlocal
-vz movetolocal
-vz put
-vz expunge ?? 
-vz count ?? 
-vz getmerge ?? subsumed by cat
-vz cpfromlocal ?? subsumed
-vz cptolocal ??
-vz get ??
-
-
+cat examples/README
