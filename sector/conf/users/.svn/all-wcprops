@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/users
+END
+test
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/users/test
+END
+root
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/users/root
+END
+anonymous
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/users/anonymous
+END

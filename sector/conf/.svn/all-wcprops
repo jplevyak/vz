@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/sector/!svn/ver/390/sector-sphere/trunk/conf
+END
+master.conf
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/master.conf
+END
+topology.conf
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svnroot/sector/!svn/ver/369/sector-sphere/trunk/conf/topology.conf
+END
+client.conf
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/sector/!svn/ver/360/sector-sphere/trunk/conf/client.conf
+END
+replica.conf
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/sector/!svn/ver/390/sector-sphere/trunk/conf/replica.conf
+END
+slaves.list
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/slaves.list
+END
+masters.list
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/masters.list
+END
+slave_acl.conf
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/slave_acl.conf
+END
+master_acl.conf
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/master_acl.conf
+END
+slave.conf
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/svnroot/sector/!svn/ver/347/sector-sphere/trunk/conf/slave.conf
+END
