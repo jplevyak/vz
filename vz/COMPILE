@@ -11,6 +11,12 @@ git clone git://github.com/jplevyak/sector.git
 git clone git://github.com/jplevyak/vz.git
 git clone git://github.com/apache/avro.git
 
+EDITLINE
+
+If you want line editing, download and install:
+
+http://www.thrysoee.dk/editline
+
 PLIB
 
 make
